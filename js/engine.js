@@ -68,6 +68,21 @@ var Engine = (function(global) {
         main();
     }
 
+
+    function getDistance(x1,y1,x2,y2) {
+       return Math.sqrt(Math.pow( (x1 - x2) , 2) + Math.pow( (y1 - y2) , 2) ) 
+    }
+
+    function checkCollisions() {
+        allEnemies.forEach((enemy) => {
+            const distance = getDistance(enemy.x, enemy.y, player.x, player.y)
+            if ((distance - enemy.size - player.size) <= 0) {
+                player.reduceLives()
+            }
+        })
+        
+    }
+
     /* This function is called by main (our game loop) and itself calls all
      * of the functions which may need to update entity's data. Based on how
      * you implement your collision detection (when two entities occupy the
@@ -79,7 +94,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -173,7 +188,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-princess-girl.png'
     ]);
     Resources.onReady(init);
 
