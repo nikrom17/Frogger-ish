@@ -10,3 +10,8 @@ This project aimed to learn and practice the concept of Object Oriented Javascri
 * Player must reach water to increase their score without colliding into the bugs
 * The play looses a life when they collide with a bug
 * The game is over when all 3 lives are lost
+
+## How to Launch Game:
+* clone this repo: `git clone https://github.com/nikrom17/Frogger-ish.git`
+* move into directory: `cd Frogger-ish`
+* open main file: `open index.html`
